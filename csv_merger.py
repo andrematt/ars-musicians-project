@@ -7,4 +7,4 @@ b = pd.read_csv("data/semantictsv.csv", delimiter="\t")
 
 merged = a.merge(b, on='personLabel')
 
-merged.to_csv("mergetsv.csv", index=False)
+merged.to_csv("test.csv", index=False)

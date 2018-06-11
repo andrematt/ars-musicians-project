@@ -1,9 +1,15 @@
 import networkx as nx
 import demon as d
+import csv_loader
+import similarity_checker
 from networkx.algorithms.community import kclique as kq
 
+# Read data from disk and generate graph
+#
+crawled = csv_loader.loadGraph()
 
-g = nx.read_edgelist("data/test.csv", delimiter="\t")
+# Benchmark graph
+#
 k = nx.karate_club_graph()
 '''
 # k-clique
@@ -15,6 +21,7 @@ c = list(kq.k_clique_communities(g, k, cliques=None)) #no already defined clique
 print(c)
 '''
 
-
-dm = d.Demon(graph=g, epsilon=0.25, min_community_size=3, file_output="communities.txt")
+dm = d.Demon(graph=crawled, epsilon=0.25, min_community_size=3)
 coms = dm.execute()
+print(similarity_checker.comm_comparer(coms, crawled))
+

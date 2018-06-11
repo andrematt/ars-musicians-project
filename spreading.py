@@ -27,9 +27,9 @@ ba = nx.barabasi_albert_graph(nodes, baLinks)
 #
 config = mc.Configuration()
 toUse = 'crawled'  # assign to crawled, er, ba
-toSim = 'TH'  # assign to SI, SIS, SIR, TH
+toSim = 'SIR'  # assign to SI, SIS, SIR, TH
 initial_infected = 0.008  # fraction of nodes infected initially both for random or selected nodes situation
-beta = 0.05  # infection rate for SI, SIS, SIR
+beta = 1  # infection rate for SI, SIS, SIR
 lamb = 0.01  # recovery rate for SIS
 gamma = 0.01  # probability of removal for SIR
 selectedInitialInfected = 1  # 1 select top or bottom fraction of nodes, 0 use a random fraction of nodes

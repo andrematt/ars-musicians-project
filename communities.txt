@@ -1,0 +1,8 @@
+0	['Adam Schlesinger', 'Davy Jones (musician)', 'Hank Cicalo', 'Louis Shelton', 'Michael Nesmith', 'Micky Dolenz', 'Peter Tork']
+1	['Bryan Mantia', 'Evan McCaskey', 'Jay Lane', 'John Marshall (guitarist)', 'Larry LaLonde', 'Les Claypool', 'Marc Biedermann', 'Tim Alexander']
+2	['Greg Ridley', 'Keith Emerson', 'Luther Grosvenor', 'Mike Harrison (musician)', 'Mike Kellie']
+3	['Bekka Bramlett', 'Billy Burnette', 'Bob Brunning', 'Bob Welch (musician)', 'Bob Weston (guitarist)', 'Christine McVie', 'Danny Kirwan', 'Dave Mason', 'Dave Walker', 'Jeremy Spencer', 'John McVie', 'Lindsey Buckingham', 'Martin Rushent', 'Mick Fleetwood', 'Nigel Watson', 'Peter Green (musician)', 'Rick Vito', 'Stevie Nicks', 'Taku Hirano']
+4	['Dave Holland (drummer)', 'David Coverdale', 'Geoff Downes', 'Glenn Hughes', 'Mel Galley', 'Mervyn Spence', 'Peter Goalby', 'Tony Iommi']
+5	['Dylan Keefe', 'Jeff Dawson', 'John Wozniak', 'Shlomi Lavie']
+6	['Bill Wyman', 'Brian Jones', 'Charlie Watts', 'Flaco Jiménez', 'Ian Stewart (musician)', 'Keith Richards', 'Mick Jagger', 'Mick Taylor', 'Ronnie Wood', 'Ry Cooder']
+7	['Alan Rubin', 'Anton Fig', 'Cab Calloway', 'Chaka Khan', 'Dan Aykroyd', 'Danny Gottlieb', 'Donald "Duck" Dunn', 'Eddie Floyd', 'J. Evan Bonifant', 'Jim Belushi', 'Joe Morton', 'John Belushi', 'John Goodman', 'John Tropea', 'Lou Marini', 'Matt Murphy (blues guitarist)', 'Murphy Dunne', 'Paul Shaffer', 'Rob Paparozzi', 'Steve Cropper', 'Steve Jordan (musician)', 'Tom Malone (musician)', 'Tom Scott (musician)']
