@@ -1,6 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import csv_loader
+import operator
+#import sys
+#sys.stdout = open('data/output.txt', 'w')
 from networkx.algorithms.components import connected_component_subgraphs as ccs
 from networkx.algorithms.shortest_paths import shortest_path as sp
 from networkx.algorithms.shortest_paths import shortest_path_length as spl
@@ -18,7 +21,7 @@ baLinks = round(links/nodes) #è giusto?
 er = nx.erdos_renyi_graph(nodes, erProb)
 ba = nx.barabasi_albert_graph(nodes, baLinks)
 toUse = 'crawled' # assign to crawled, er, ba
-toDraw = '1'  # 0 nothing, 1 degree dist, 2 graph
+toDraw = '1'  # 0 nothing, 1 degree dist, 2 graph 3 closeness dist 4 clustering dist
 
 ############################################
 
@@ -80,12 +83,9 @@ print("highest degree node: ", highest[0])
 
 # Centrality measures
 #Closeness non vuole params!!
-#
-#closeness_c = nx.closeness_centrality(graphInUse, sources=topDegrees) # Return a dictionary
+
+#closeness_c = nx.closeness_centrality(graphInUse) # Return a dictionary
 #sorted_closeness = sorted(closeness_c.items(), key=operator.itemgetter(1), reverse=True) # Dictionary have .key, .value and .items for the couple
-#betweenness_c = nx.betweenness_centrality(graphInUse, k=100)
-#sorted_betweenness = sorted(betweenness_c.items(), key=operator.itemgetter(1), reverse=True)
-#print("sorted betweenness: ", sorted_betweenness)
 #print("sorted closeness: ", sorted_closeness)  # TODO vedere il rapporto tra alta betweennees e semantica?
 
 '''
@@ -109,4 +109,44 @@ if (toDraw!=0):
         plt.loglog()
     elif toDraw == '2':
         nx.draw(graphInUse, with_labels=True)
+    elif toDraw == '3':
+        betweenness_c = nx.betweenness_centrality(graphInUse, k=100)
+        sorted_betweenness = sorted(betweenness_c.items(), key=operator.itemgetter(1), reverse=True)
+        print("sorted betweenness: ", sorted_betweenness)
+        newDict = {}  # make a new dict which holds the degree and the centrality measure of a node
+        for i in betweenness_c.items():
+            newDict[i[0]] = [i[1], graphInUse.degree(i[0])]
+        list1 = []
+        list2 = []
+        for value in newDict.values():
+            list1.append(value[0])
+            list2.append(value[1])
+        print(list1)
+        plt.scatter(list2, list1)
+        # plt.yscale('log')
+        plt.xscale('log')
+        plt.title("Degree Distribution")
+        plt.xlabel("Degree")
+        plt.ylabel("Betweenness Centrality")
+    elif toDraw == '4':
+        all_clusterings = nx.clustering(graphInUse)
+        sorted_clustering = sorted(all_clusterings.items(), key=operator.itemgetter(1), reverse=True)
+        print("sorted clustering: ", sorted_clustering)
+        newDict = {}  # make a new dict which holds the degree and the centrality measure of a node
+        for i in all_clusterings.items():
+            newDict[i[0]] = [i[1], graphInUse.degree(i[0])]
+        list1 = []
+        list2 = []
+        for value in newDict.values():
+            list1.append(value[0])
+            list2.append(value[1])
+        print(list1)
+        plt.scatter(list2, list1)
+        # plt.yscale('log')
+        plt.xscale('log')
+        plt.title("Cluestering distribution")
+        plt.xlabel("Degree")
+        plt.ylabel("Clustering coefficent")
+
+
     plt.show()

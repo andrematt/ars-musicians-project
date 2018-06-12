@@ -7,7 +7,7 @@ def loadGraph():
 # Read data from disk and generate graph
 #
 
-    #reference_datetime = dt.datetime.strptime('1975-01-01', '%Y-%m-%d')
+    reference_datetime = dt.datetime.strptime('1975-01-01', '%Y-%m-%d')
     default_datetime = dt.datetime.strptime('1000-01-01', '%Y-%m-%d')
     g = nx.Graph()
 
@@ -26,7 +26,7 @@ def loadGraph():
 # Read csv line by line and assign to dict entry
 #
 
-    csv_read = csv.reader(open("data/mergetsv.csv", encoding="utf8"), delimiter='\t')
+    csv_read = csv.reader(open("data/merge_new.csv", encoding="utf8"), delimiter='\t')
     print(type(csv_read))
     for row in csv_read:
 
@@ -56,7 +56,7 @@ def loadGraph():
         for n in label_splitted:
             row_dict['label'].append(n)
 
-        # if (row_dict['birth_date']>reference_datetime):  #birthdate filter
+        #if (row_dict['birth_date']>reference_datetime):  #birthdate filter
         g.add_node(row[0], data=row_dict)
 
         if (g.has_node(row[1])):  # if the linked node exists, just add the link
