@@ -7,7 +7,7 @@ def loadGraph():
 # Read data from disk and generate graph
 #
 
-    reference_datetime = dt.datetime.strptime('1975-01-01', '%Y-%m-%d')
+    reference_datetime = dt.datetime.strptime('1975-01-01', '%Y-%m-%d') #added for birthdate filter, not used
     default_datetime = dt.datetime.strptime('1000-01-01', '%Y-%m-%d')
     g = nx.Graph()
 

@@ -19,20 +19,20 @@ crawled = csv_loader.loadGraph()
 nodes = crawled.number_of_nodes()
 links = float(crawled.number_of_edges())
 erProb = 2*links/(nodes*nodes-1)
-baLinks = round(links/nodes) #è giusto?
+baLinks = round(links/nodes)
 er = nx.erdos_renyi_graph(nodes, erProb)
 ba = nx.barabasi_albert_graph(nodes, baLinks)
 
 # Modify this parameters for customize the initial status of experiment
 #
 config = mc.Configuration()
-toUse = 'crawled'  # assign to crawled, er, ba
+toUse = 'ba'  # assign to crawled, er, ba
 toSim = 'SIR'  # assign to SI, SIS, SIR, TH
-initial_infected = 0.008  # fraction of nodes infected initially both for random or selected nodes situation
-beta = 1  # infection rate for SI, SIS, SIR
-lamb = 0.01  # recovery rate for SIS
+initial_infected = 0.01  # fraction of nodes infected initially both for random or selected nodes situation
+beta = 0.05   # infection rate for SI, SIS, SIR
+lamb = 0.1  # recovery rate for SIS
 gamma = 0.01  # probability of removal for SIR
-selectedInitialInfected = 1  # 1 select top or bottom fraction of nodes, 0 use a random fraction of nodes
+selectedInitialInfected = 0  # 1 select top or bottom fraction of nodes, 0 use a random fraction of nodes
 direction = 1  # 1 for select nodes in top-down direction, 0 for bottom-up (use with selectedInitialInfected)
 threshold = 0.01  # threshold for TH model
 
@@ -131,8 +131,8 @@ if toSim=='TH':
 #
 model.set_initial_status(config)
 toRun = model
-trends = multi_runs(toRun, execution_number=4, iteration_number=100,  nprocesses=4)
-iterations = model.iteration_bunch(100, node_status=False) #node status?
+trends = multi_runs(toRun, execution_number=4, iteration_number=300,  nprocesses=4)
+iterations = model.iteration_bunch(300, node_status=False) #node status?
 
 #print and visualize results
 #
